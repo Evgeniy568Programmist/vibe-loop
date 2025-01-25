@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowLeft } from "lucide-react";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -26,9 +27,21 @@ const SignUp = () => {
     }
   };
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
-      <Card className="w-full max-w-md bg-tiktok-gray text-white">
+      <Card className="w-full max-w-md bg-tiktok-gray text-white relative">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute left-2 top-2 text-gray-400 hover:text-white"
+          onClick={handleGoBack}
+        >
+          <ArrowLeft className="h-5 w-5" />
+        </Button>
         <CardHeader>
           <CardTitle>Create Account</CardTitle>
           <CardDescription className="text-gray-400">
