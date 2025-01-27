@@ -37,6 +37,7 @@ const VideoPlayer = ({
         videoRef.current.play();
       }
       setIsPlaying(!isPlaying);
+      console.log(`Video ${isPlaying ? 'paused' : 'playing'}`); // Added console log
     }
   };
 

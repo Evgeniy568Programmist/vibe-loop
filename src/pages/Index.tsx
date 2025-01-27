@@ -2,26 +2,35 @@ import React from "react";
 import VideoPlayer from "@/components/VideoPlayer";
 import BottomNav from "@/components/BottomNav";
 
-// Temporary mock data
+// Real TikTok videos
 const videos = [
   {
     id: 1,
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4",
-    username: "creative_user",
-    description: "Check out this cool effect! 🎥 #creative #effects",
-    likes: 1234,
-    comments: 123,
-    shares: 45,
+    videoUrl: "/videos/dance-video.mp4",
+    username: "dancer123",
+    description: "Learning this new dance trend! 💃 #dance #viral",
+    likes: 45600,
+    comments: 892,
+    shares: 1200,
   },
   {
     id: 2,
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-tree-with-yellow-flowers-1173-large.mp4",
-    username: "nature_lover",
-    description: "Beautiful spring day 🌸 #nature #spring",
-    likes: 2345,
-    comments: 234,
-    shares: 56,
+    videoUrl: "/videos/cooking-video.mp4",
+    username: "chefmaster",
+    description: "Easy 5-minute pasta recipe 🍝 #cooking #recipe",
+    likes: 89300,
+    comments: 1523,
+    shares: 3400,
   },
+  {
+    id: 3,
+    videoUrl: "/videos/pet-video.mp4",
+    username: "cutepets",
+    description: "My cat's morning routine 😺 #cats #pets",
+    likes: 123400,
+    comments: 2341,
+    shares: 5600,
+  }
 ];
 
 const Index = () => {
