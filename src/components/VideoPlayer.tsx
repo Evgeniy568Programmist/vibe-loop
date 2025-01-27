@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Heart, MessageCircle, Share2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useToast } from "@/components/ui/use-toast";
 
 interface VideoPlayerProps {
   videoUrl: string;
@@ -22,6 +23,11 @@ const VideoPlayer = ({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
+  const { toast } = useToast();
+  
+  // Track double tap
+  const [lastTap, setLastTap] = useState(0);
+  const DOUBLE_TAP_DELAY = 300; // milliseconds
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -36,6 +42,27 @@ const VideoPlayer = ({
 
   const toggleLike = () => {
     setIsLiked(!isLiked);
+    toast({
+      description: isLiked ? "Removed from liked videos" : "Added to liked videos",
+      duration: 1500,
+    });
+  };
+
+  const handleVideoPress = (e: React.MouseEvent) => {
+    const currentTime = new Date().getTime();
+    const tapLength = currentTime - lastTap;
+    
+    if (tapLength < DOUBLE_TAP_DELAY && tapLength > 0) {
+      // Double tap detected
+      if (!isLiked) {
+        toggleLike();
+      }
+      e.preventDefault(); // Prevent single tap action
+    } else {
+      togglePlay();
+    }
+    
+    setLastTap(currentTime);
   };
 
   return (
@@ -45,10 +72,10 @@ const VideoPlayer = ({
         className="h-full w-full object-cover"
         src={videoUrl}
         loop
-        onClick={togglePlay}
+        onClick={handleVideoPress}
       />
       
-      {/* Video Info - Moved higher up and made more visible */}
+      {/* Video Info */}
       <div className="absolute bottom-24 left-4 right-16 p-4 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
         <Link to={`/profile/${username}`}>
           <h2 className="text-white font-semibold text-lg mb-2 hover:text-tiktok-red transition-colors">
