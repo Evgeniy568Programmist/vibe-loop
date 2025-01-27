@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Heart, MessageCircle, Share2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface VideoPlayerProps {
   videoUrl: string;
@@ -49,7 +50,11 @@ const VideoPlayer = ({
       
       {/* Video Info - Moved higher up and made more visible */}
       <div className="absolute bottom-24 left-4 right-16 p-4 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
-        <h2 className="text-white font-semibold text-lg mb-2">@{username}</h2>
+        <Link to={`/profile/${username}`}>
+          <h2 className="text-white font-semibold text-lg mb-2 hover:text-tiktok-red transition-colors">
+            @{username}
+          </h2>
+        </Link>
         <p className="text-white text-base">{description}</p>
       </div>
 
