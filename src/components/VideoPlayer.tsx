@@ -47,10 +47,10 @@ const VideoPlayer = ({
         onClick={togglePlay}
       />
       
-      {/* Video Info */}
-      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
-        <h2 className="text-white font-semibold">@{username}</h2>
-        <p className="text-white text-sm mt-1">{description}</p>
+      {/* Video Info - Moved higher up and made more visible */}
+      <div className="absolute bottom-24 left-4 right-16 p-4 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
+        <h2 className="text-white font-semibold text-lg mb-2">@{username}</h2>
+        <p className="text-white text-base">{description}</p>
       </div>
 
       {/* Action Buttons */}
