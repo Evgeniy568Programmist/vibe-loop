@@ -2,10 +2,10 @@ import React from "react";
 import VideoPlayer from "@/components/VideoPlayer";
 import BottomNav from "@/components/BottomNav";
 import { Button } from "@/components/ui/button";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
+import { X } from "lucide-react";
 
-// Temporary mock data - in a real app this would come from an API
 const mockUserData = {
   username: "creative_user",
   followers: 1234,
@@ -36,6 +36,7 @@ const mockUserData = {
 const Profile = () => {
   const { username } = useParams();
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [isSubscribed, setIsSubscribed] = React.useState(false);
 
   const handleSubscribe = () => {
@@ -48,10 +49,24 @@ const Profile = () => {
     });
   };
 
+  const handleClose = () => {
+    navigate(-1); // Go back to the previous page
+  };
+
   console.log("Viewing profile of:", username);
 
   return (
-    <div className="bg-black min-h-screen pb-16">
+    <div className="bg-black min-h-screen pb-16 relative">
+      {/* Close Button */}
+      <Button
+        variant="ghost"
+        size="icon"
+        className="absolute top-4 right-4 z-50 text-white hover:bg-gray-800"
+        onClick={handleClose}
+      >
+        <X className="h-6 w-6" />
+      </Button>
+
       {/* Profile Header */}
       <div className="bg-gray-900 p-4 text-white">
         <h1 className="text-2xl font-bold mb-2">@{username}</h1>
