@@ -14,6 +14,122 @@ const SignIn = () => {
   const { signIn } = useAuth();
   const navigate = useNavigate();
 
+  const translations = {
+    en: {
+      signIn: "Sign In",
+      welcome: "Welcome back! Please sign in to continue.",
+      email: "Email",
+      emailPlaceholder: "Enter your email",
+      password: "Password",
+      passwordPlaceholder: "Enter your password",
+      signingIn: "Signing in...",
+      noAccount: "Don't have an account?",
+      signUp: "Sign up"
+    },
+    ru: {
+      signIn: "Войти",
+      welcome: "С возвращением! Пожалуйста, войдите, чтобы продолжить.",
+      email: "Электронная почта",
+      emailPlaceholder: "Введите вашу почту",
+      password: "Пароль",
+      passwordPlaceholder: "Введите ваш пароль",
+      signingIn: "Выполняется вход...",
+      noAccount: "Нет аккаунта?",
+      signUp: "Зарегистрироваться"
+    },
+    uk: {
+      signIn: "Увійти",
+      welcome: "З поверненням! Будь ласка, увійдіть, щоб продовжити.",
+      email: "Електронна пошта",
+      emailPlaceholder: "Введіть вашу пошту",
+      password: "Пароль",
+      passwordPlaceholder: "Введіть ваш пароль",
+      signingIn: "Виконується вхід...",
+      noAccount: "Немає облікового запису?",
+      signUp: "Зареєструватися"
+    },
+    es: {
+      signIn: "Iniciar Sesión",
+      welcome: "¡Bienvenido de nuevo! Por favor, inicia sesión para continuar.",
+      email: "Correo electrónico",
+      emailPlaceholder: "Ingresa tu correo",
+      password: "Contraseña",
+      passwordPlaceholder: "Ingresa tu contraseña",
+      signingIn: "Iniciando sesión...",
+      noAccount: "¿No tienes una cuenta?",
+      signUp: "Regístrate"
+    },
+    fr: {
+      signIn: "Se Connecter",
+      welcome: "Bon retour! Veuillez vous connecter pour continuer.",
+      email: "E-mail",
+      emailPlaceholder: "Entrez votre e-mail",
+      password: "Mot de passe",
+      passwordPlaceholder: "Entrez votre mot de passe",
+      signingIn: "Connexion en cours...",
+      noAccount: "Vous n'avez pas de compte ?",
+      signUp: "S'inscrire"
+    },
+    de: {
+      signIn: "Anmelden",
+      welcome: "Willkommen zurück! Bitte melden Sie sich an, um fortzufahren.",
+      email: "E-Mail",
+      emailPlaceholder: "E-Mail eingeben",
+      password: "Passwort",
+      passwordPlaceholder: "Passwort eingeben",
+      signingIn: "Anmeldung läuft...",
+      noAccount: "Noch kein Konto?",
+      signUp: "Registrieren"
+    },
+    "pt-BR": {
+      signIn: "Entrar",
+      welcome: "Bem-vindo de volta! Por favor, entre para continuar.",
+      email: "E-mail",
+      emailPlaceholder: "Digite seu e-mail",
+      password: "Senha",
+      passwordPlaceholder: "Digite sua senha",
+      signingIn: "Entrando...",
+      noAccount: "Não tem uma conta?",
+      signUp: "Cadastre-se"
+    },
+    "pt-PT": {
+      signIn: "Iniciar Sessão",
+      welcome: "Bem-vindo de volta! Por favor, inicie sessão para continuar.",
+      email: "E-mail",
+      emailPlaceholder: "Introduza o seu e-mail",
+      password: "Palavra-passe",
+      passwordPlaceholder: "Introduza a sua palavra-passe",
+      signingIn: "A iniciar sessão...",
+      noAccount: "Não tem uma conta?",
+      signUp: "Registar"
+    },
+    pl: {
+      signIn: "Zaloguj się",
+      welcome: "Witaj z powrotem! Zaloguj się, aby kontynuować.",
+      email: "E-mail",
+      emailPlaceholder: "Wprowadź swój e-mail",
+      password: "Hasło",
+      passwordPlaceholder: "Wprowadź swoje hasło",
+      signingIn: "Logowanie...",
+      noAccount: "Nie masz konta?",
+      signUp: "Zarejestruj się"
+    },
+    cs: {
+      signIn: "Přihlásit se",
+      welcome: "Vítejte zpět! Pro pokračování se prosím přihlaste.",
+      email: "E-mail",
+      emailPlaceholder: "Zadejte svůj e-mail",
+      password: "Heslo",
+      passwordPlaceholder: "Zadejte své heslo",
+      signingIn: "Přihlašování...",
+      noAccount: "Nemáte účet?",
+      signUp: "Zaregistrovat se"
+    }
+  };
+
+  const currentLang = localStorage.getItem("app-language") || "en";
+  const t = translations[currentLang as keyof typeof translations];
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -43,19 +159,19 @@ const SignIn = () => {
           <ArrowLeft className="h-5 w-5" />
         </Button>
         <CardHeader>
-          <CardTitle>Sign In</CardTitle>
+          <CardTitle>{t.signIn}</CardTitle>
           <CardDescription className="text-gray-400">
-            Welcome back! Please sign in to continue.
+            {t.welcome}
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t.email}</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t.emailPlaceholder}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -63,11 +179,11 @@ const SignIn = () => {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">{t.password}</Label>
               <Input
                 id="password"
                 type="password"
-                placeholder="Enter your password"
+                placeholder={t.passwordPlaceholder}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -81,12 +197,12 @@ const SignIn = () => {
               disabled={loading}
               className="w-full bg-tiktok-red hover:bg-red-700"
             >
-              {loading ? "Signing in..." : "Sign In"}
+              {loading ? t.signingIn : t.signIn}
             </Button>
             <p className="text-sm text-gray-400">
-              Don't have an account?{" "}
+              {t.noAccount}{" "}
               <Link to="/signup" className="text-tiktok-blue hover:underline">
-                Sign up
+                {t.signUp}
               </Link>
             </p>
           </CardFooter>

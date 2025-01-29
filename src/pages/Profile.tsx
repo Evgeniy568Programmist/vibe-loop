@@ -39,25 +39,130 @@ const Profile = () => {
   const navigate = useNavigate();
   const [isSubscribed, setIsSubscribed] = React.useState(false);
 
+  const translations = {
+    en: {
+      followers: "Followers",
+      following: "Following",
+      subscribe: "Subscribe",
+      unsubscribe: "Unsubscribe",
+      subscribed: "Subscribed!",
+      unsubscribed: "Unsubscribed",
+      subscribedDesc: "You are now subscribed to {username}'s content",
+      unsubscribedDesc: "You have unsubscribed from {username}'s content"
+    },
+    ru: {
+      followers: "Подписчики",
+      following: "Подписки",
+      subscribe: "Подписаться",
+      unsubscribe: "Отписаться",
+      subscribed: "Подписка оформлена!",
+      unsubscribed: "Подписка отменена",
+      subscribedDesc: "Вы подписались на контент пользователя {username}",
+      unsubscribedDesc: "Вы отписались от контента пользователя {username}"
+    },
+    uk: {
+      followers: "Підписники",
+      following: "Підписки",
+      subscribe: "Підписатися",
+      unsubscribe: "Відписатися",
+      subscribed: "Підписка оформлена!",
+      unsubscribed: "Підписка скасована",
+      subscribedDesc: "Ви підписалися на контент користувача {username}",
+      unsubscribedDesc: "Ви відписалися від контенту користувача {username}"
+    },
+    es: {
+      followers: "Seguidores",
+      following: "Siguiendo",
+      subscribe: "Suscribirse",
+      unsubscribe: "Desuscribirse",
+      subscribed: "¡Suscrito!",
+      unsubscribed: "Desuscrito",
+      subscribedDesc: "Ahora estás suscrito al contenido de {username}",
+      unsubscribedDesc: "Te has desuscrito del contenido de {username}"
+    },
+    fr: {
+      followers: "Abonnés",
+      following: "Abonnements",
+      subscribe: "S'abonner",
+      unsubscribe: "Se désabonner",
+      subscribed: "Abonné !",
+      unsubscribed: "Désabonné",
+      subscribedDesc: "Vous êtes maintenant abonné au contenu de {username}",
+      unsubscribedDesc: "Vous vous êtes désabonné du contenu de {username}"
+    },
+    de: {
+      followers: "Follower",
+      following: "Folgt",
+      subscribe: "Abonnieren",
+      unsubscribe: "Abbestellen",
+      subscribed: "Abonniert!",
+      unsubscribed: "Abbestellt",
+      subscribedDesc: "Sie haben {username}s Inhalt abonniert",
+      unsubscribedDesc: "Sie haben {username}s Inhalt abbestellt"
+    },
+    "pt-BR": {
+      followers: "Seguidores",
+      following: "Seguindo",
+      subscribe: "Inscrever-se",
+      unsubscribe: "Cancelar inscrição",
+      subscribed: "Inscrito!",
+      unsubscribed: "Inscrição cancelada",
+      subscribedDesc: "Você agora está inscrito no conteúdo de {username}",
+      unsubscribedDesc: "Você cancelou sua inscrição no conteúdo de {username}"
+    },
+    "pt-PT": {
+      followers: "Seguidores",
+      following: "A seguir",
+      subscribe: "Subscrever",
+      unsubscribe: "Cancelar subscrição",
+      subscribed: "Subscrito!",
+      unsubscribed: "Subscrição cancelada",
+      subscribedDesc: "Agora está subscrito ao conteúdo de {username}",
+      unsubscribedDesc: "Cancelou a subscrição do conteúdo de {username}"
+    },
+    pl: {
+      followers: "Obserwujący",
+      following: "Obserwowane",
+      subscribe: "Obserwuj",
+      unsubscribe: "Przestań obserwować",
+      subscribed: "Zaobserwowano!",
+      unsubscribed: "Przestano obserwować",
+      subscribedDesc: "Obserwujesz teraz treści użytkownika {username}",
+      unsubscribedDesc: "Przestałeś obserwować treści użytkownika {username}"
+    },
+    cs: {
+      followers: "Sledující",
+      following: "Sleduje",
+      subscribe: "Sledovat",
+      unsubscribe: "Přestat sledovat",
+      subscribed: "Sledováno!",
+      unsubscribed: "Sledování zrušeno",
+      subscribedDesc: "Nyní sledujete obsah uživatele {username}",
+      unsubscribedDesc: "Přestali jste sledovat obsah uživatele {username}"
+    }
+  };
+
+  const currentLang = localStorage.getItem("app-language") || "en";
+  const t = translations[currentLang as keyof typeof translations];
+
   const handleSubscribe = () => {
     setIsSubscribed(!isSubscribed);
     toast({
-      title: isSubscribed ? "Unsubscribed" : "Subscribed!",
+      title: isSubscribed ? t.unsubscribed : t.subscribed,
       description: isSubscribed 
-        ? `You have unsubscribed from ${username}'s content`
-        : `You are now subscribed to ${username}'s content`,
+        ? t.unsubscribedDesc.replace("{username}", username || "")
+        : t.subscribedDesc.replace("{username}", username || ""),
     });
   };
 
   const handleClose = () => {
-    navigate(-1); // Go back to the previous page
+    navigate(-1);
   };
 
   console.log("Viewing profile of:", username);
 
   return (
     <div className="bg-black min-h-screen pb-16 relative">
-      {/* Close Button */}
       <Button
         variant="ghost"
         size="icon"
@@ -67,17 +172,16 @@ const Profile = () => {
         <X className="h-6 w-6" />
       </Button>
 
-      {/* Profile Header */}
       <div className="bg-gray-900 p-4 text-white">
         <h1 className="text-2xl font-bold mb-2">@{username}</h1>
         <div className="flex gap-4 mb-4">
           <div>
             <div className="font-bold">{mockUserData.followers}</div>
-            <div className="text-sm text-gray-400">Followers</div>
+            <div className="text-sm text-gray-400">{t.followers}</div>
           </div>
           <div>
             <div className="font-bold">{mockUserData.following}</div>
-            <div className="text-sm text-gray-400">Following</div>
+            <div className="text-sm text-gray-400">{t.following}</div>
           </div>
         </div>
         <p className="mb-4">{mockUserData.bio}</p>
@@ -86,11 +190,10 @@ const Profile = () => {
           className={isSubscribed ? "bg-transparent text-white border-white" : ""}
           onClick={handleSubscribe}
         >
-          {isSubscribed ? "Unsubscribe" : "Subscribe"}
+          {isSubscribed ? t.unsubscribe : t.subscribe}
         </Button>
       </div>
 
-      {/* Videos Grid */}
       <div className="h-screen snap-y snap-mandatory overflow-y-scroll">
         {mockUserData.videos.map((video) => (
           <div key={video.id} className="snap-start h-screen">
