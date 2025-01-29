@@ -124,6 +124,39 @@ const SignUp = () => {
       creatingAccount: "Vytváření účtu...",
       haveAccount: "Již máte účet?",
       signIn: "Přihlásit se"
+    },
+    "zh-CN": {
+      createAccount: "创建账号",
+      joinCommunity: "立即加入我们的社区！",
+      email: "邮箱",
+      emailPlaceholder: "请输入邮箱",
+      password: "密码",
+      passwordPlaceholder: "请设置密码",
+      creatingAccount: "创建账号中...",
+      haveAccount: "已有账号？",
+      signIn: "登录"
+    },
+    "zh-TW": {
+      createAccount: "建立帳號",
+      joinCommunity: "立即加入我們的社群！",
+      email: "電子郵件",
+      emailPlaceholder: "請輸入電子郵件",
+      password: "密碼",
+      passwordPlaceholder: "請設定密碼",
+      creatingAccount: "建立帳號中...",
+      haveAccount: "已有帳號？",
+      signIn: "登入"
+    },
+    "ja": {
+      createAccount: "アカウント作成",
+      joinCommunity: "コミュニティに参加しましょう！",
+      email: "メールアドレス",
+      emailPlaceholder: "メールアドレスを入力",
+      password: "パスワード",
+      passwordPlaceholder: "パスワードを設定",
+      creatingAccount: "アカウント作成中...",
+      haveAccount: "すでにアカウントをお持ちの方",
+      signIn: "ログイン"
     }
   };
 

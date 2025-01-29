@@ -128,7 +128,7 @@ const Profile = () => {
       subscribed: "Zaobserwowano!",
       unsubscribed: "Przestano obserwować",
       subscribedDesc: "Obserwujesz teraz treści użytkownika {username}",
-      unsubscribedDesc: "Przestałeś obserwować treści użytkownika {username}"
+      unsubscribedDesc: "Przestaliście obserwować treści użytkownika {username}"
     },
     cs: {
       followers: "Sledující",
@@ -139,6 +139,36 @@ const Profile = () => {
       unsubscribed: "Sledování zrušeno",
       subscribedDesc: "Nyní sledujete obsah uživatele {username}",
       unsubscribedDesc: "Přestali jste sledovat obsah uživatele {username}"
+    },
+    "zh-CN": {
+      followers: "粉丝",
+      following: "关注",
+      subscribe: "关注",
+      unsubscribe: "取消关注",
+      subscribed: "已关注！",
+      unsubscribed: "已取消关注",
+      subscribedDesc: "你已关注 {username} 的内容",
+      unsubscribedDesc: "你已取消关注 {username} 的内容"
+    },
+    "zh-TW": {
+      followers: "粉絲",
+      following: "追蹤中",
+      subscribe: "追蹤",
+      unsubscribe: "取消追蹤",
+      subscribed: "已追蹤！",
+      unsubscribed: "已取消追蹤",
+      subscribedDesc: "你已追蹤 {username} 的內容",
+      unsubscribedDesc: "你已取消追蹤 {username} 的內容"
+    },
+    ja: {
+      followers: "フォロワー",
+      following: "フォロー中",
+      subscribe: "フォロー",
+      unsubscribe: "フォロー解除",
+      subscribed: "フォローしました！",
+      unsubscribed: "フォロー解除しました",
+      subscribedDesc: "{username} をフォローしました",
+      unsubscribedDesc: "{username} のフォローを解除しました"
     }
   };
 

@@ -73,6 +73,24 @@ const BottomNav = () => {
       discover: "Objevit",
       inbox: "Zprávy",
       profile: "Profil"
+    },
+    "zh-CN": {
+      home: "首页",
+      discover: "发现",
+      inbox: "消息",
+      profile: "我的"
+    },
+    "zh-TW": {
+      home: "首頁",
+      discover: "發現",
+      inbox: "訊息",
+      profile: "我的"
+    },
+    ja: {
+      home: "ホーム",
+      discover: "見つける",
+      inbox: "メッセージ",
+      profile: "プロフィール"
     }
   };
 

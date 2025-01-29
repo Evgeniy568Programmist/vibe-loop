@@ -68,6 +68,18 @@ const VideoPlayer = ({
     cs: {
       addedToLiked: "Přidáno do oblíbených",
       removedFromLiked: "Odebráno z oblíbených"
+    },
+    "zh-CN": {
+      addedToLiked: "已添加到喜欢的视频",
+      removedFromLiked: "已从喜欢的视频中移除"
+    },
+    "zh-TW": {
+      addedToLiked: "已添加到喜歡的影片",
+      removedFromLiked: "已從喜歡的影片中移除"
+    },
+    "ja": {
+      addedToLiked: "お気に入りの動画に追加しました",
+      removedFromLiked: "お気に入りの動画から削除しました"
     }
   };
 

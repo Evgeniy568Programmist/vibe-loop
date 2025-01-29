@@ -124,6 +124,39 @@ const SignIn = () => {
       signingIn: "Přihlašování...",
       noAccount: "Nemáte účet?",
       signUp: "Zaregistrovat se"
+    },
+    "zh-CN": {
+      signIn: "登录",
+      welcome: "欢迎回来！请登录以继续。",
+      email: "邮箱",
+      emailPlaceholder: "请输入邮箱",
+      password: "密码",
+      passwordPlaceholder: "请输入密码",
+      signingIn: "登录中...",
+      noAccount: "还没有账号？",
+      signUp: "注册"
+    },
+    "zh-TW": {
+      signIn: "登入",
+      welcome: "歡迎回來！請登入以繼續。",
+      email: "電子郵件",
+      emailPlaceholder: "請輸入電子郵件",
+      password: "密碼",
+      passwordPlaceholder: "請輸入密碼",
+      signingIn: "登入中...",
+      noAccount: "還沒有帳號？",
+      signUp: "註冊"
+    },
+    ja: {
+      signIn: "ログイン",
+      welcome: "おかえりなさい！続けるにはログインしてください。",
+      email: "メールアドレス",
+      emailPlaceholder: "メールアドレスを入力",
+      password: "パスワード",
+      passwordPlaceholder: "パスワードを入力",
+      signingIn: "ログイン中...",
+      noAccount: "アカウントをお持ちでない方",
+      signUp: "新規登録"
     }
   };
 

@@ -9,6 +9,9 @@ import { useEffect, useState } from "react";
 
 const languages = [
   { code: "en", name: "English (Original)" },
+  { code: "zh-CN", name: "简体中文" },
+  { code: "zh-TW", name: "繁體中文" },
+  { code: "ja", name: "日本語" },
   { code: "ru", name: "Русский" },
   { code: "uk", name: "Українська" },
   { code: "es", name: "Español" },
