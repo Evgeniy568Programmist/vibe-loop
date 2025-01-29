@@ -5,6 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useEffect, useState } from "react";
 
 const languages = [
   { code: "en", name: "English (Original)" },
@@ -20,9 +21,21 @@ const languages = [
 ];
 
 const LanguageSelector = () => {
+  const [currentLang, setCurrentLang] = useState("en");
+
+  useEffect(() => {
+    const storedLang = localStorage.getItem("app-language");
+    if (storedLang) {
+      setCurrentLang(storedLang);
+      console.log("Initialized language from storage:", storedLang);
+    }
+  }, []);
+
   const handleLanguageChange = (langCode: string) => {
-    console.log(`Language changed to: ${langCode}`);
-    // Here you would implement the actual language change logic
+    console.log(`Changing language to: ${langCode}`);
+    localStorage.setItem("app-language", langCode);
+    setCurrentLang(langCode);
+    window.location.reload();
   };
 
   return (
@@ -34,7 +47,9 @@ const LanguageSelector = () => {
         {languages.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
-            className="text-white hover:bg-white/10 cursor-pointer"
+            className={`text-white hover:bg-white/10 cursor-pointer ${
+              currentLang === lang.code ? "bg-white/20" : ""
+            }`}
             onClick={() => handleLanguageChange(lang.code)}
           >
             {lang.name}
