@@ -1,6 +1,7 @@
 import React from "react";
 import VideoPlayer from "@/components/VideoPlayer";
 import BottomNav from "@/components/BottomNav";
+import LanguageSelector from "@/components/LanguageSelector";
 
 // Real TikTok videos
 const videos = [
@@ -36,6 +37,7 @@ const videos = [
 const Index = () => {
   return (
     <div className="bg-black min-h-screen">
+      <LanguageSelector />
       {/* Video Feed */}
       <div className="h-screen snap-y snap-mandatory overflow-y-scroll">
         {videos.map((video) => (
