@@ -124,7 +124,6 @@ const VideoPlayer = ({
     };
   }, [videoUrl]);
 
-  // Add timeupdate event listener to update progress
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -201,10 +200,9 @@ const VideoPlayer = ({
         className="absolute bottom-0 left-0 right-0 h-1 bg-gray-600 cursor-pointer"
         onClick={handleProgressClick}
       >
-
         <div 
           className="h-full bg-tiktok-red transition-all duration-100"
-          style={{ width: `${progress}%`; transform: translateY(-50%); }}
+          style={{ width: `${progress}%`, transform: 'translateY(-50%)' }}
         />
       </div>
 
