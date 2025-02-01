@@ -197,8 +197,7 @@ const VideoPlayer = ({
       
       {/* Progress bar */}
       <div 
-        className="absolute bottom-0 left-0 right-0 h-1 bg-gray-600 cursor-pointer"
-        style="trasnform: translateY(-50%)"
+        className="absolute bottom-25 left-0 right-0 h-1 bg-gray-600 cursor-pointer"
         onClick={handleProgressClick}
       >
         <div 
