@@ -203,7 +203,7 @@ const VideoPlayer = ({
       >
         <div 
           className="h-full bg-tiktok-red transition-all duration-100"
-          style={{ width: `${progress}%` }}
+          style={{ width: `${progress}%`, transform: translateY(-50%) }}
         />
       </div>
 
