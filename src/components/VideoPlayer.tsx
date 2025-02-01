@@ -197,14 +197,14 @@ const VideoPlayer = ({
       
       {/* Progress bar */}
       <div 
-        className="absolute bottom-20 left-0 right-0 h-1 bg-gray-600 cursor-pointer"
+        className="absolute bottom-0 left-0 right-0 h-1 bg-gray-600 cursor-pointer"
         onClick={handleProgressClick}
       >
         <div 
           className="h-full bg-tiktok-red transition-all duration-100"
           style={{
             width: `${progress}%`,
-            transform: 'translateY(-50%)'
+            transform: 'translateY(-25%)'
           }}
         />
       </div>
