@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Heart, MessageCircle, Share2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
@@ -21,6 +21,7 @@ const VideoPlayer = ({
   shares,
 }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const { toast } = useToast();
@@ -86,6 +87,42 @@ const VideoPlayer = ({
   const currentLang = localStorage.getItem("app-language") || "en";
   const t = translations[currentLang as keyof typeof translations];
 
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.7, // Video will play when 70% visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (videoRef.current) {
+            videoRef.current.play();
+            setIsPlaying(true);
+            console.log('Video started playing:', videoUrl);
+          }
+        } else {
+          if (videoRef.current) {
+            videoRef.current.pause();
+            setIsPlaying(false);
+            console.log('Video paused:', videoUrl);
+          }
+        }
+      });
+    }, options);
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, [videoUrl]);
+
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -123,7 +160,7 @@ const VideoPlayer = ({
   };
 
   return (
-    <div className="relative h-screen w-full bg-black">
+    <div ref={containerRef} className="relative h-screen w-full bg-black">
       <video
         ref={videoRef}
         className="h-full w-full object-cover"
