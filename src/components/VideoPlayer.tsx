@@ -24,6 +24,7 @@ const VideoPlayer = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
+  const [progress, setProgress] = useState(0);
   const { toast } = useToast();
   
   const [lastTap, setLastTap] = useState(0);
@@ -91,7 +92,7 @@ const VideoPlayer = ({
     const options = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.7, // Video will play when 70% visible
+      threshold: 0.7,
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -122,6 +123,32 @@ const VideoPlayer = ({
       }
     };
   }, [videoUrl]);
+
+  // Add timeupdate event listener to update progress
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleTimeUpdate = () => {
+      const progress = (video.currentTime / video.duration) * 100;
+      setProgress(progress);
+    };
+
+    video.addEventListener('timeupdate', handleTimeUpdate);
+    return () => video.removeEventListener('timeupdate', handleTimeUpdate);
+  }, []);
+
+  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const progressBar = e.currentTarget;
+    const rect = progressBar.getBoundingClientRect();
+    const clickPosition = (e.clientX - rect.left) / rect.width;
+    
+    video.currentTime = video.duration * clickPosition;
+    console.log('Video seeked to:', video.currentTime);
+  };
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -169,6 +196,17 @@ const VideoPlayer = ({
         onClick={handleVideoPress}
       />
       
+      {/* Progress bar */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-1 bg-gray-600 cursor-pointer"
+        onClick={handleProgressClick}
+      >
+        <div 
+          className="h-full bg-tiktok-red transition-all duration-100"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+
       <div className="absolute bottom-24 left-4 right-16 p-4 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
         <Link to={`/profile/${username}`}>
           <h2 className="text-white font-semibold text-lg mb-2 hover:text-tiktok-red transition-colors">
