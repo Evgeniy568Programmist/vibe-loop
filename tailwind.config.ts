@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
+        sans: ['Proxima Nova', 'sans-serif'],
       },
       colors: {
         tiktok: {
