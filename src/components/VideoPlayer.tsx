@@ -26,6 +26,7 @@ const VideoPlayer = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [isPortrait, setIsPortrait] = useState(window.innerHeight > window.innerWidth);
   const { toast } = useToast();
   const isMobile = useIsMobile();
   
@@ -89,6 +90,15 @@ const VideoPlayer = ({
 
   const currentLang = localStorage.getItem("app-language") || "en";
   const t = translations[currentLang as keyof typeof translations];
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsPortrait(window.innerHeight > window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const options = {
@@ -190,11 +200,15 @@ const VideoPlayer = ({
   return (
     <div 
       ref={containerRef} 
-      className={`relative w-full ${isMobile ? 'h-screen' : 'max-h-[calc(100vh-4rem)] aspect-[9/16]'} bg-black mx-auto`}
+      className={`relative mx-auto ${
+        isPortrait
+          ? 'w-full h-screen'
+          : 'h-[100vh] max-w-[177.78vh]' // 16:9 aspect ratio
+      } bg-black flex items-center justify-center`}
     >
       <video
         ref={videoRef}
-        className="h-full w-full object-cover"
+        className={`h-full w-full ${isPortrait ? 'object-contain' : 'object-cover'}`}
         src={videoUrl}
         loop
         onClick={handleVideoPress}
