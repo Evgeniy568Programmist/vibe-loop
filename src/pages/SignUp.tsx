@@ -26,6 +26,39 @@ const SignUp = () => {
       haveAccount: "Already have an account?",
       signIn: "Sign in"
     },
+    vi: {
+      createAccount: "Tạo tài khoản",
+      joinCommunity: "Tham gia cộng đồng của chúng tôi ngay hôm nay!",
+      email: "Email",
+      emailPlaceholder: "Nhập email của bạn",
+      password: "Mật khẩu",
+      passwordPlaceholder: "Chọn mật khẩu",
+      creatingAccount: "Đang tạo tài khoản...",
+      haveAccount: "Đã có tài khoản?",
+      signIn: "Đăng nhập"
+    },
+    tr: {
+      createAccount: "Hesap Oluştur",
+      joinCommunity: "Topluluğumuza bugün katılın!",
+      email: "E-posta",
+      emailPlaceholder: "E-posta adresinizi girin",
+      password: "Şifre",
+      passwordPlaceholder: "Bir şifre seçin",
+      creatingAccount: "Hesap oluşturuluyor...",
+      haveAccount: "Zaten hesabınız var mı?",
+      signIn: "Giriş yap"
+    },
+    nl: {
+      createAccount: "Account Aanmaken",
+      joinCommunity: "Word vandaag lid van onze community!",
+      email: "E-mail",
+      emailPlaceholder: "Voer je e-mailadres in",
+      password: "Wachtwoord",
+      passwordPlaceholder: "Kies een wachtwoord",
+      creatingAccount: "Account wordt aangemaakt...",
+      haveAccount: "Heb je al een account?",
+      signIn: "Inloggen"
+    },
     ru: {
       createAccount: "Создать аккаунт",
       joinCommunity: "Присоединяйтесь к нашему сообществу!",
@@ -161,7 +194,7 @@ const SignUp = () => {
   };
 
   const currentLang = localStorage.getItem("app-language") || "en";
-  const t = translations[currentLang as keyof typeof translations];
+  const t = translations[currentLang as keyof typeof translations] || translations.en; // Added fallback to English
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
