@@ -26,6 +26,39 @@ const SignIn = () => {
       noAccount: "Don't have an account?",
       signUp: "Sign up"
     },
+    vi: {
+      signIn: "Đăng nhập",
+      welcome: "Chào mừng trở lại! Vui lòng đăng nhập để tiếp tục.",
+      email: "Email",
+      emailPlaceholder: "Nhập email của bạn",
+      password: "Mật khẩu",
+      passwordPlaceholder: "Nhập mật khẩu của bạn",
+      signingIn: "Đang đăng nhập...",
+      noAccount: "Chưa có tài khoản?",
+      signUp: "Đăng ký"
+    },
+    tr: {
+      signIn: "Giriş Yap",
+      welcome: "Hoş geldiniz! Devam etmek için lütfen giriş yapın.",
+      email: "E-posta",
+      emailPlaceholder: "E-posta adresinizi girin",
+      password: "Şifre",
+      passwordPlaceholder: "Şifrenizi girin",
+      signingIn: "Giriş yapılıyor...",
+      noAccount: "Hesabınız yok mu?",
+      signUp: "Kayıt ol"
+    },
+    nl: {
+      signIn: "Inloggen",
+      welcome: "Welkom terug! Log in om door te gaan.",
+      email: "E-mail",
+      emailPlaceholder: "Voer je e-mailadres in",
+      password: "Wachtwoord",
+      passwordPlaceholder: "Voer je wachtwoord in",
+      signingIn: "Bezig met inloggen...",
+      noAccount: "Nog geen account?",
+      signUp: "Registreren"
+    },
     ru: {
       signIn: "Войти",
       welcome: "С возвращением! Пожалуйста, войдите, чтобы продолжить.",
@@ -161,7 +194,7 @@ const SignIn = () => {
   };
 
   const currentLang = localStorage.getItem("app-language") || "en";
-  const t = translations[currentLang as keyof typeof translations];
+  const t = translations[currentLang as keyof typeof translations] || translations.en; // Added fallback to English
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
