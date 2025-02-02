@@ -50,6 +50,36 @@ const Profile = () => {
       subscribedDesc: "You are now subscribed to {username}'s content",
       unsubscribedDesc: "You have unsubscribed from {username}'s content"
     },
+    vi: {
+      followers: "Người theo dõi",
+      following: "Đang theo dõi",
+      subscribe: "Theo dõi",
+      unsubscribe: "Bỏ theo dõi",
+      subscribed: "Đã theo dõi!",
+      unsubscribed: "Đã bỏ theo dõi",
+      subscribedDesc: "Bạn đã theo dõi nội dung của {username}",
+      unsubscribedDesc: "Bạn đã bỏ theo dõi nội dung của {username}"
+    },
+    tr: {
+      followers: "Takipçiler",
+      following: "Takip edilenler",
+      subscribe: "Takip et",
+      unsubscribe: "Takibi bırak",
+      subscribed: "Takip edildi!",
+      unsubscribed: "Takip bırakıldı",
+      subscribedDesc: "{username} içeriğini takip ediyorsunuz",
+      unsubscribedDesc: "{username} içeriğini takip etmeyi bıraktınız"
+    },
+    nl: {
+      followers: "Volgers",
+      following: "Volgend",
+      subscribe: "Volgen",
+      unsubscribe: "Ontvolgen",
+      subscribed: "Gevolgd!",
+      unsubscribed: "Ontvolgt",
+      subscribedDesc: "Je volgt nu de content van {username}",
+      unsubscribedDesc: "Je volgt de content van {username} niet meer"
+    },
     ru: {
       followers: "Подписчики",
       following: "Подписки",
@@ -173,7 +203,7 @@ const Profile = () => {
   };
 
   const currentLang = localStorage.getItem("app-language") || "en";
-  const t = translations[currentLang as keyof typeof translations];
+  const t = translations[currentLang as keyof typeof translations] || translations.en; // Added fallback to English
 
   const handleSubscribe = () => {
     setIsSubscribed(!isSubscribed);
