@@ -203,7 +203,7 @@ const VideoPlayer = ({
       className={`relative mx-auto ${
         isPortrait
           ? 'w-full h-screen'
-          : 'h-[100vh] max-w-[177.78vh]' // 16:9 aspect ratio
+          : 'h-[100vh] max-w-[177.78vh]'
       } bg-black flex items-center justify-center`}
     >
       <video
@@ -237,25 +237,26 @@ const VideoPlayer = ({
         <p className="text-white text-base">{description}</p>
       </div>
 
-      <div className="absolute right-4 bottom-20 flex flex-col gap-4">
+      {/* Updated action buttons container with centering */}
+      <div className="absolute right-4 bottom-20 flex flex-col gap-4 items-center">
         <button
           onClick={toggleLike}
-          className="p-2 rounded-full bg-transparent text-white hover:bg-white/10 transition-colors"
+          className="p-2 rounded-full bg-transparent text-white hover:bg-white/10 transition-colors flex flex-col items-center"
         >
           <Heart
             className={`w-8 h-8 ${isLiked ? "fill-tiktok-red text-tiktok-red" : ""}`}
           />
-          <span className="text-sm">{likes}</span>
+          <span className="text-sm mt-1">{likes}</span>
         </button>
         
-        <button className="p-2 rounded-full bg-transparent text-white hover:bg-white/10 transition-colors">
+        <button className="p-2 rounded-full bg-transparent text-white hover:bg-white/10 transition-colors flex flex-col items-center">
           <MessageCircle className="w-8 h-8" />
-          <span className="text-sm">{comments}</span>
+          <span className="text-sm mt-1">{comments}</span>
         </button>
         
-        <button className="p-2 rounded-full bg-transparent text-white hover:bg-white/10 transition-colors">
+        <button className="p-2 rounded-full bg-transparent text-white hover:bg-white/10 transition-colors flex flex-col items-center">
           <Share2 className="w-8 h-8" />
-          <span className="text-sm">{shares}</span>
+          <span className="text-sm mt-1">{shares}</span>
         </button>
       </div>
     </div>
