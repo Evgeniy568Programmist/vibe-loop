@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { Heart, MessageCircle, Share2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface VideoPlayerProps {
   videoUrl: string;
@@ -26,6 +27,7 @@ const VideoPlayer = ({
   const [isLiked, setIsLiked] = useState(false);
   const [progress, setProgress] = useState(0);
   const { toast } = useToast();
+  const isMobile = useIsMobile();
   
   const [lastTap, setLastTap] = useState(0);
   const DOUBLE_TAP_DELAY = 300;
@@ -186,7 +188,10 @@ const VideoPlayer = ({
   };
 
   return (
-    <div ref={containerRef} className="relative h-screen w-full bg-black">
+    <div 
+      ref={containerRef} 
+      className={`relative w-full ${isMobile ? 'h-screen' : 'max-h-[calc(100vh-4rem)] aspect-[9/16]'} bg-black mx-auto`}
+    >
       <video
         ref={videoRef}
         className="h-full w-full object-cover"
