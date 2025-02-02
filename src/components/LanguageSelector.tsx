@@ -8,7 +8,10 @@ import {
 import { useEffect, useState } from "react";
 
 const languages = [
-  { code: "en", name: "English (Original)" },
+  { code: "en", name: "English" },
+  { code: "tr", name: "Türkçe" },
+  { code: "vi", name: "Tiếng Việt" },
+  { code: "nl", name: "Nederlands" },
   { code: "zh-CN", name: "简体中文" },
   { code: "zh-TW", name: "繁體中文" },
   { code: "ja", name: "日本語" },
@@ -17,8 +20,8 @@ const languages = [
   { code: "es", name: "Español" },
   { code: "fr", name: "Français" },
   { code: "de", name: "Deutsch" },
-  { code: "pt-BR", name: "Português (Brasil)" },
-  { code: "pt-PT", name: "Português (Portugal)" },
+  { code: "pt-BR", name: "Português (BR)" },
+  { code: "pt-PT", name: "Português (PT)" },
   { code: "pl", name: "Polski" },
   { code: "cs", name: "Čeština" },
 ];
@@ -43,14 +46,17 @@ const LanguageSelector = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="fixed top-4 right-4 z-50 bg-secondary/80 p-2 rounded-full hover:bg-secondary/90 transition-colors">
-        <Globe className="w-6 h-6 text-white" />
+      <DropdownMenuTrigger className="fixed top-4 right-4 z-50 bg-secondary/80 p-1.5 rounded-full hover:bg-secondary/90 transition-colors">
+        <Globe className="w-5 h-5 text-white" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 bg-secondary/95 border-secondary" align="end">
+      <DropdownMenuContent 
+        className="w-44 bg-secondary/95 border-secondary max-h-[70vh] overflow-y-auto" 
+        align="end"
+      >
         {languages.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
-            className={`text-white hover:bg-white/10 cursor-pointer ${
+            className={`text-sm text-white hover:bg-white/10 cursor-pointer py-1 ${
               currentLang === lang.code ? "bg-white/20" : ""
             }`}
             onClick={() => handleLanguageChange(lang.code)}
