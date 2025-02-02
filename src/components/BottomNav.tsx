@@ -20,6 +20,24 @@ const BottomNav = () => {
       inbox: "Inbox",
       profile: "Profile"
     },
+    tr: {
+      home: "Ana Sayfa",
+      discover: "Keşfet",
+      inbox: "Mesajlar",
+      profile: "Profil"
+    },
+    vi: {
+      home: "Trang chủ",
+      discover: "Khám phá",
+      inbox: "Tin nhắn",
+      profile: "Hồ sơ"
+    },
+    nl: {
+      home: "Home",
+      discover: "Ontdekken",
+      inbox: "Berichten",
+      profile: "Profiel"
+    },
     ru: {
       home: "Главная",
       discover: "Поиск",
@@ -95,7 +113,7 @@ const BottomNav = () => {
   };
 
   const currentLang = localStorage.getItem("app-language") || "en";
-  const t = translations[currentLang as keyof typeof translations];
+  const t = translations[currentLang as keyof typeof translations] || translations.en; // Added fallback to English
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-black border-t border-gray-800 py-2 px-4">
