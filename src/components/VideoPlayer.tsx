@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Heart, MessageCircle, Share2 } from "lucide-react";
+import { Heart, MessageCircle, Share2, Play, Pause } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -214,6 +214,21 @@ const VideoPlayer = ({
         onClick={handleVideoPress}
       />
       
+      {/* Play/Pause overlay with animation */}
+      <div 
+        className={`absolute inset-0 flex items-center justify-center pointer-events-none
+          ${isPlaying ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+      >
+        <div className={`bg-black/50 rounded-full p-6 transform transition-all duration-300
+          ${isPlaying ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}`}>
+          {isPlaying ? (
+            <Pause className="w-12 h-12 text-white" />
+          ) : (
+            <Play className="w-12 h-12 text-white" />
+          )}
+        </div>
+      </div>
+
       {/* Progress bar */}
       <div 
         className="absolute bottom-16 left-0 right-0 h-1 bg-gray-600 cursor-pointer"
@@ -237,7 +252,7 @@ const VideoPlayer = ({
         <p className="text-white text-base">{description}</p>
       </div>
 
-      {/* Updated action buttons container with centering */}
+      {/* Action buttons */}
       <div className="absolute right-4 bottom-20 flex flex-col gap-4 items-center">
         <button
           onClick={toggleLike}
