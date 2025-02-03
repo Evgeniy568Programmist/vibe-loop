@@ -58,21 +58,21 @@
 
 @font-face {
   font-family: 'Proxima Nova';
-  src: url('/../public/fonts/PROXIMANOVA-REGULAR.TTF');
+  src: url('/..fonts/PROXIMANOVA-REGULAR.TTF');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Proxima Nova Semibold';
-  src: url('/../public/fonts/PROXIMANOVA-SEMIBOLD.TTF');
+  src: url('/../fonts/PROXIMANOVA-SEMIBOLD.TTF');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Proxima Nova';
-  src: url('/../public/fonts/PROXIMANOVA-BOLD.TTF');
+  src: url('/..fonts/PROXIMANOVA-BOLD.TTF');
   font-weight: 700;
   font-style: bold;
 }
