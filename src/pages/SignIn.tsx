@@ -26,6 +26,50 @@ const SignIn = () => {
       noAccount: "Don't have an account?",
       signUp: "Sign up"
     },
+    id: {
+      signIn: "Masuk",
+      welcome: "Selamat datang kembali! Silakan masuk untuk melanjutkan.",
+      email: "Email",
+      emailPlaceholder: "Masukkan email Anda",
+      password: "Kata Sandi",
+      passwordPlaceholder: "Masukkan kata sandi Anda",
+      signingIn: "Sedang masuk...",
+      noAccount: "Belum punya akun?",
+      signUp: "Daftar"
+    },
+    kk: {
+      signIn: "Кіру",
+      welcome: "Қайта келгеніңізге қуаныштымыз! Жалғастыру үшін кіріңіз.",
+      email: "Email",
+      emailPlaceholder: "Email енгізіңіз",
+      password: "Құпия сөз",
+      passwordPlaceholder: "Құпия сөзді енгізіңіз",
+      signingIn: "Кіру...",
+      noAccount: "Аккаунтыңыз жоқ па?",
+      signUp: "Тіркелу"
+    },
+    hy: {
+      signIn: "Մուտք",
+      welcome: "Բարի վերադարձ! Խնդրում ենք մուտք գործել շարունակելու համար:",
+      email: "Էլ. փոստ",
+      emailPlaceholder: "Մուտքագրեք ձեր էլ. փոստը",
+      password: "Գաղտնաբառ",
+      passwordPlaceholder: "Մուտքագրեք ձեր գաղտնաբառը",
+      signingIn: "Մուտք է գործում...",
+      noAccount: "Չունե՞ք հաշիվ:",
+      signUp: "Գրանցվել"
+    },
+    az: {
+      signIn: "Daxil ol",
+      welcome: "Xoş gəldiniz! Davam etmək üçün daxil olun.",
+      email: "E-poçt",
+      emailPlaceholder: "E-poçtunuzu daxil edin",
+      password: "Şifrə",
+      passwordPlaceholder: "Şifrənizi daxil edin",
+      signingIn: "Daxil olunur...",
+      noAccount: "Hesabınız yoxdur?",
+      signUp: "Qeydiyyatdan keç"
+    },
     vi: {
       signIn: "Đăng nhập",
       welcome: "Chào mừng trở lại! Vui lòng đăng nhập để tiếp tục.",
@@ -194,7 +238,7 @@ const SignIn = () => {
   };
 
   const currentLang = localStorage.getItem("app-language") || "en";
-  const t = translations[currentLang as keyof typeof translations] || translations.en; // Added fallback to English
+  const t = translations[currentLang as keyof typeof translations] || translations.en;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

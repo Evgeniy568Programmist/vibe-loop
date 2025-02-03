@@ -20,9 +20,27 @@ const BottomNav = () => {
       inbox: "Inbox",
       profile: "Profile"
     },
-    tr: {
-      home: "Ana Sayfa",
-      discover: "Keşfet",
+    id: {
+      home: "Beranda",
+      discover: "Jelajahi",
+      inbox: "Pesan",
+      profile: "Profil"
+    },
+    kk: {
+      home: "Басты бет",
+      discover: "Іздеу",
+      inbox: "Хабарламалар",
+      profile: "Профиль"
+    },
+    hy: {
+      home: "Գլխավոր",
+      discover: "Բացահայտել",
+      inbox: "Նամակներ",
+      profile: "Պրոֆիլ"
+    },
+    az: {
+      home: "Ana səhifə",
+      discover: "Kəşf et",
       inbox: "Mesajlar",
       profile: "Profil"
     },
@@ -113,7 +131,7 @@ const BottomNav = () => {
   };
 
   const currentLang = localStorage.getItem("app-language") || "en";
-  const t = translations[currentLang as keyof typeof translations] || translations.en; // Added fallback to English
+  const t = translations[currentLang as keyof typeof translations] || translations.en;
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-black border-t border-gray-800 py-2 px-4">

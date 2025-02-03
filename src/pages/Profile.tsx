@@ -50,6 +50,46 @@ const Profile = () => {
       subscribedDesc: "You are now subscribed to {username}'s content",
       unsubscribedDesc: "You have unsubscribed from {username}'s content"
     },
+    id: {
+      followers: "Pengikut",
+      following: "Mengikuti",
+      subscribe: "Ikuti",
+      unsubscribe: "Berhenti Mengikuti",
+      subscribed: "Telah mengikuti!",
+      unsubscribed: "Berhenti mengikuti",
+      subscribedDesc: "Anda sekarang mengikuti konten {username}",
+      unsubscribedDesc: "Anda telah berhenti mengikuti konten {username}"
+    },
+    kk: {
+      followers: "Жазылушылар",
+      following: "Жазылған",
+      subscribe: "Жазылу",
+      unsubscribe: "Жазылудан бас тарту",
+      subscribed: "Жазылдыңыз!",
+      unsubscribed: "Жазылудан бас тарттыңыз",
+      subscribedDesc: "Сіз {username} контентіне жазылдыңыз",
+      unsubscribedDesc: "Сіз {username} контентінен жазылудан бас тарттыңыз"
+    },
+    hy: {
+      followers: "Հետևորդներ",
+      following: "Հետևում եմ",
+      subscribe: "Բաժանորդագրվել",
+      unsubscribe: "Չեղարկել բաժանորդագրությունը",
+      subscribed: "Բաժանորդագրված եք!",
+      unsubscribed: "Բաժանորդագրությունը չեղարկված է",
+      subscribedDesc: "Դուք այժմ բաժանորդագրված եք {username}-ի բովանդակությանը",
+      unsubscribedDesc: "Դուք չեղարկել եք {username}-ի բաժանորդագրությունը"
+    },
+    az: {
+      followers: "İzləyicilər",
+      following: "İzləyir",
+      subscribe: "Abunə ol",
+      unsubscribe: "Abunəlikdən çıx",
+      subscribed: "Abunə oldunuz!",
+      unsubscribed: "Abunəlikdən çıxdınız",
+      subscribedDesc: "{username} məzmununa abunə oldunuz",
+      unsubscribedDesc: "{username} məzmunundan abunəlikdən çıxdınız"
+    },
     vi: {
       followers: "Người theo dõi",
       following: "Đang theo dõi",
@@ -203,7 +243,7 @@ const Profile = () => {
   };
 
   const currentLang = localStorage.getItem("app-language") || "en";
-  const t = translations[currentLang as keyof typeof translations] || translations.en; // Added fallback to English
+  const t = translations[currentLang as keyof typeof translations] || translations.en;
 
   const handleSubscribe = () => {
     setIsSubscribed(!isSubscribed);

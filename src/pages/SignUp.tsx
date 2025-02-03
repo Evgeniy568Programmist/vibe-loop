@@ -26,6 +26,50 @@ const SignUp = () => {
       haveAccount: "Already have an account?",
       signIn: "Sign in"
     },
+    id: {
+      createAccount: "Buat Akun",
+      joinCommunity: "Bergabunglah dengan komunitas kami hari ini!",
+      email: "Email",
+      emailPlaceholder: "Masukkan email Anda",
+      password: "Kata Sandi",
+      passwordPlaceholder: "Pilih kata sandi",
+      creatingAccount: "Membuat akun...",
+      haveAccount: "Sudah punya akun?",
+      signIn: "Masuk"
+    },
+    kk: {
+      createAccount: "Аккаунт жасау",
+      joinCommunity: "Бүгін біздің қауымдастыққа қосылыңыз!",
+      email: "Email",
+      emailPlaceholder: "Email енгізіңіз",
+      password: "Құпия сөз",
+      passwordPlaceholder: "Құпия сөзді таңдаңыз",
+      creatingAccount: "Аккаунт жасалуда...",
+      haveAccount: "Аккаунтыңыз бар ма?",
+      signIn: "Кіру"
+    },
+    hy: {
+      createAccount: "Ստեղծել հաշիվ",
+      joinCommunity: "Միացեք մեր համայնքին այսօր!",
+      email: "Էլ. փոստ",
+      emailPlaceholder: "Մուտքագրեք ձեր էլ. փոստը",
+      password: "Գաղտնաբառ",
+      passwordPlaceholder: "Ընտրեք գաղտնաբառ",
+      creatingAccount: "Հաշիվը ստեղծվում է...",
+      haveAccount: "Արդեն ունե՞ք հաշիվ:",
+      signIn: "Մուտք"
+    },
+    az: {
+      createAccount: "Hesab yarat",
+      joinCommunity: "Bu gün bizim cəmiyyətimizə qoşulun!",
+      email: "E-poçt",
+      emailPlaceholder: "E-poçtunuzu daxil edin",
+      password: "Şifrə",
+      passwordPlaceholder: "Şifrə seçin",
+      creatingAccount: "Hesab yaradılır...",
+      haveAccount: "Artıq hesabınız var?",
+      signIn: "Daxil ol"
+    },
     vi: {
       createAccount: "Tạo tài khoản",
       joinCommunity: "Tham gia cộng đồng của chúng tôi ngay hôm nay!",
@@ -78,7 +122,7 @@ const SignUp = () => {
       password: "Пароль",
       passwordPlaceholder: "Виберіть пароль",
       creatingAccount: "Створення облікового запису...",
-      haveAccount: "Вже є обліковий запис?",
+      haveAccount: "Вже маєте обліковий запис?",
       signIn: "Увійти"
     },
     es: {
@@ -180,7 +224,7 @@ const SignUp = () => {
       haveAccount: "已有帳號？",
       signIn: "登入"
     },
-    "ja": {
+    ja: {
       createAccount: "アカウント作成",
       joinCommunity: "コミュニティに参加しましょう！",
       email: "メールアドレス",
